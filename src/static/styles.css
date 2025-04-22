@@ -33,6 +33,8 @@ main {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -58,11 +60,13 @@ section h3 {
 }
 
 .activity-card {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
+  width: 100%;
+  max-width: 600px;
 }
 
 .activity-card h4 {
@@ -197,4 +201,11 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+/* Add responsive design for mobile */
+@media (max-width: 768px) {
+  .activity-card {
+    width: 90%;
+  }
 }

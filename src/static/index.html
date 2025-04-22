@@ -20,31 +20,36 @@
           <p>Loading activities...</p>
         </div>
       </section>
-
-      <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
-          <div class="form-group">
-            <label for="email">Student Email:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
-          </div>
-          <div class="form-group">
-            <label for="activity">Select Activity:</label>
-            <select id="activity" required>
-              <option value="">-- Select an activity --</option>
-              <!-- Activity options will be loaded here -->
-            </select>
-          </div>
-          <button type="submit">Sign Up</button>
-        </form>
-        <div id="message" class="hidden"></div>
-      </section>
     </main>
 
     <footer>
       <p>&copy; 2023 Mergington High School</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script>
+      // Add a button dynamically for each activity
+      document.addEventListener("DOMContentLoaded", () => {
+        const activitiesList = document.getElementById("activities-list");
+        activitiesList.innerHTML = ""; // Clear loading message
+
+        // Example activity data (replace with API call)
+        const activities = [
+          { name: "Chess Club", description: "Learn chess", schedule: "Fridays" },
+          { name: "Programming Class", description: "Learn coding", schedule: "Tuesdays" }
+        ];
+
+        activities.forEach(activity => {
+          const card = document.createElement("div");
+          card.className = "activity-card";
+          card.innerHTML = `
+            <h4>${activity.name}</h4>
+            <p>${activity.description}</p>
+            <p><strong>Schedule:</strong> ${activity.schedule}</p>
+            <button>Register</button>
+          `;
+          activitiesList.appendChild(card);
+        });
+      });
+    </script>
   </body>
 </html>
